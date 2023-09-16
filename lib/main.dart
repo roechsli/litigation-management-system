@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:litigation_management_system/screens/claim_view.dart';
 import 'package:litigation_management_system/screens/dashboard.dart';
 import 'package:litigation_management_system/screens/new_litigation_screen.dart';
@@ -9,6 +10,9 @@ import 'package:webview_flutter_web/webview_flutter_web.dart';
 
 void main() {
 // Add this
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.white,
+  ));
   if (kIsWeb) {
     WebViewPlatform.instance = WebWebViewPlatform();
   }

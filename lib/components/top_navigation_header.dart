@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:litigation_management_system/services/pdf_viewer.dart';
 
 class TopNavigationHeader extends StatelessWidget {
   @override
@@ -15,6 +16,21 @@ class TopNavigationHeader extends StatelessWidget {
         ),
       ),
       actions: [
+        IconButton(
+          icon: Icon(
+            Icons.download_for_offline_outlined, // Messages icon
+            color: Colors.black,
+          ),
+          onPressed: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    PdfViewer(),
+              ),
+            );
+          },
+        ),
         IconButton(
           icon: Icon(
             Icons.mail_outline, // Messages icon

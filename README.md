@@ -12,6 +12,10 @@ Dashboard View
 
 ![Claim View Screen](https://github.com/roechsli/litigation-management-system/blob/master/assets/exports/dashboard_screen.gif)
 
+Report Generator
+
+![Claim View Screen](https://github.com/roechsli/litigation-management-system/blob/master/assets/exports/web_pdf_export_fast_lq.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

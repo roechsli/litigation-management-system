@@ -29,48 +29,43 @@ class _TableViewScreenState extends State<TableViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Claims Table"),
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3, // Number of columns in the grid
       ),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, // Number of columns in the grid
-        ),
-        itemCount: ClaimsRepository.claims.length,
-        itemBuilder: (BuildContext context, int index) {
-          // Create a card for each claim
-          var claim = ClaimsRepository.claims[index];
-          final currentColor = cardColors[colorIndex % cardColors.length]; // Get the current color
-          colorIndex++; // Move to the next color
-          return GestureDetector(
+      itemCount: ClaimsRepository.claims.length,
+      itemBuilder: (BuildContext context, int index) {
+        // Create a card for each claim
+        var claim = ClaimsRepository.claims[index];
+        final currentColor = cardColors[colorIndex % cardColors.length]; // Get the current color
+        colorIndex++; // Move to the next color
+        return GestureDetector(
             onTap: () {
               //TODO:  Navigate to the "View Claim" screen when tapped
-              
+
             },
             child: Card(
-                      elevation: 5,
-                      margin: EdgeInsets.all(10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0), // Rounded corners
-                      ),
-                      shadowColor: Colors.grey,
-                      color: currentColor, // Use the current color
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Division: ${claim.division}"),
-                            Text("Country: ${claim.country}"),
-                            // Add more Text widgets for other claim properties
-                          ],
-                        ),
-                      ),
-                    )
-          );
-        },
-      ),
+              elevation: 5,
+              margin: EdgeInsets.all(10),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0), // Rounded corners
+              ),
+              shadowColor: Colors.grey,
+              color: currentColor, // Use the current color
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Division: ${claim.division}"),
+                    Text("Country: ${claim.country}"),
+                    // Add more Text widgets for other claim properties
+                  ],
+                ),
+              ),
+            )
+        );
+      },
     );
   }
 }
