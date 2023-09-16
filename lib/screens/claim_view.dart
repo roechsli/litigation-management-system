@@ -185,7 +185,7 @@ class _EditClaimScreenState extends State<EditClaimScreen> {
                       child: _MoneyBox(
                     icon: Icons.payment,
                     title: "Due",
-                    value: "2000",
+                    value: "${int.parse(claimData['volume']).abs() - 1000}",
                     currency: claimData['currency'],
                     color: Colors.deepOrangeAccent,
                   )), // Replace with actual due amount

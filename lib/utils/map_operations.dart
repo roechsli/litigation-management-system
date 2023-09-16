@@ -8,7 +8,7 @@ List<String> compareMaps(Map<String, dynamic> map1, Map<String, dynamic> map2) {
       final value2 = map2[key];
       // Compare the values of the two maps
       if (value1 != value2) {
-        differences.add('$key: changed from $value1 to $value2');
+        differences.add('$key: ${value1 == "" ? "added" : "changed from $value1 to"} $value2');
       }
     } else {
       differences.add('$key: $value1 was added');
