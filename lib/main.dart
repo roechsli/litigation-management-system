@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       },
       title: 'LMS',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: const MyHomePage(title: 'Litigation Management System'),
     );
@@ -52,9 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
     const TableViewScreen(),
   ];
 
+  var newLitigationScreen = NewLitigationScreen();
+
+  var showNewLitigationScreen = false;
+
   void doSomething() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const NewLitigationScreen()));
+    // Navigator.push(context,
+    //     MaterialPageRoute(builder: (context) => NewLitigationScreen()));
+    setState(() {
+      showNewLitigationScreen = !showNewLitigationScreen;
+    });
   }
 
   @override
@@ -85,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
 // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
-        body: screens[currentPageIndex],
+        body: showNewLitigationScreen ? newLitigationScreen : screens[currentPageIndex],
         floatingActionButton: (currentPageIndex == 1)
             ? FloatingActionButton(
                 onPressed: doSomething,

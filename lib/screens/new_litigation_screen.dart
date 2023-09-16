@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:survey_kit/survey_kit.dart' as survey;
 import 'package:survey_kit/survey_kit.dart';
@@ -35,9 +36,21 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
         'cancel': ' ', //TEMP: Removing the "Cancel Button"
       },
       //themeData: surveryTheme(context),
+      themeData: ThemeData(
+        cupertinoOverrideTheme: NoDefaultCupertinoThemeData(primaryColor: Colors.red),
+        scaffoldBackgroundColor: Colors.red,
+        hintColor: Colors.red,
+        focusColor: Colors.red,
+        hoverColor: Colors.red,
+        shadowColor: Colors.red,
+        primaryColor: Colors.red,
+        highlightColor: Colors.red,
+        unselectedWidgetColor: Colors.red,
+        ),
       surveyProgressbarConfiguration: SurveyProgressConfiguration(
         backgroundColor: Colors.white,
       ),
+      
     );
     //_currentSurvey = survey;
     return survey;
@@ -147,15 +160,14 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          // Your widget content goes here
-          body: Stack(children: [
-        Container(
-            color: Colors.white,
-            child:
-                Align(alignment: Alignment.center, child: litigationSurvery()))
-      ])),
-    );
+    return litigationSurvery();
+      //     Stack(children: [
+      //   Container(
+      //       color: Colors.white,
+      //       child:
+      //           Align(alignment: Alignment.center, child: litigationSurvery()))
+      // ])
+      //),
+    //);
   }
 }
