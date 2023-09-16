@@ -34,7 +34,8 @@ class TopNavigationHeader extends StatelessWidget {
           },
         ),
         CircleAvatar(
-          backgroundImage: AssetImage('assets/profile_avatar.png'), // Replace with your avatar image
+          backgroundImage: AssetImage(
+              'assets/profile_avatar.jpg'), // Replace with your avatar image
           radius: 20, // Adjust the size of the avatar as needed
         ),
         SizedBox(width: 16), // Add spacing between avatar and other icons
