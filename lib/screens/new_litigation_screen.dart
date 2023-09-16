@@ -53,7 +53,7 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
       steps: [
         InstructionStep(
           stepIdentifier: StepIdentifier(id: "1"),
-          title: "Welcome to the\nLitigation Management System\n",
+          title: "Welcome to the\nCustom Litigation Management\n",
           text: "Follow the instructions to add a litigation!",
           buttonText: "Let's go!",
         ),

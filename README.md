@@ -2,6 +2,10 @@
 
 A litigation management system
 
+## Our solution
+
+![Claim View Screen](https://github.com/roechsli/litigation-management-system/blob/master/assets/exports/view_claim.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

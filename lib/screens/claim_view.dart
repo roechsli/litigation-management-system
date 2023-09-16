@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:litigation_management_system/utils/map_operations.dart';
+import 'package:litigation_management_system/widgets/timeline.dart';
 
 class EditClaimScreen extends StatefulWidget {
   @override
@@ -13,22 +15,42 @@ class _EditClaimScreenState extends State<EditClaimScreen> {
     "pcNo": "200017",
     "investmentCenterName": "Buildings Gros-Oeuvre Ouest",
     "psp": "1000222",
-    "projectDescription": "A",
+    "projectDescription": "",
     "type": "Expected legal case against Implenia",
     "businessResponsible": "Peter",
     "legalResponsible": "Jack",
     "financeResponsible": "Mathias",
     "caseNumber": "1",
-    "claimant": "Name A",
-    "respondentOfClaim": "Name 1",
+    "claimant": "Implenia",
+    "respondentOfClaim": "Lazy Lurkers",
     "counterpartyRelation": "Client",
     "proceedingStatus": "First Instance - Exchange of briefs",
-    "subjectMatter": "D",
+    "subjectMatter": "",
+    "currency": "CHF",
+    "volume": "-3000",
+  };
+  Map<String, dynamic> initClaimData = {
+    "division": "Buildings CH",
+    "country": "Switzerland",
+    "pcNo": "200017",
+    "investmentCenterName": "Buildings Gros-Oeuvre Ouest",
+    "psp": "1000222",
+    "projectDescription": "",
+    "type": "Expected legal case against Implenia",
+    "businessResponsible": "Peter",
+    "legalResponsible": "Jack",
+    "financeResponsible": "Mathias",
+    "caseNumber": "1",
+    "claimant": "Implenia",
+    "respondentOfClaim": "Lazy Lurkers",
+    "counterpartyRelation": "Client",
+    "proceedingStatus": "First Instance - Exchange of briefs",
+    "subjectMatter": "",
     "currency": "CHF",
     "volume": "-3000",
   };
 
-  Map<String, dynamic> fieldNameMapping = {
+  Map<String, String> fieldNameMapping = {
     "Division": "division",
     "Country": "country",
     "Project Code": "pcNo",
@@ -58,9 +80,20 @@ class _EditClaimScreenState extends State<EditClaimScreen> {
     "volume"
   ];
 
+  List<ProcessCard> activities = [];
+
+  void addActivity(List<String> differences){
+    activities.add(ProcessCard(
+        "Updated",
+        "Updated or added new fields.\n\n${differences.join('\n')}.",
+        "17th of September, 2023",
+        Icons.change_circle_rounded));
+  }
+
+
   List<Widget> _getListOfTextFields() {
     return fieldNameMapping.keys.map((key) {
-      final value = fieldNameMapping[key];
+      final value = fieldNameMapping[key] ?? "";
       return _InfoRow(
           title: key,
           value: claimData[value],
@@ -99,6 +132,12 @@ class _EditClaimScreenState extends State<EditClaimScreen> {
                   ? () {
                       // Save changes and exit edit mode
                       setState(() {
+                        Map<String, String> keyMapping = invertMap(fieldNameMapping);
+                        Map<String, dynamic> beautifulInitClaimData  = replaceKeys(initClaimData, keyMapping);
+                        Map<String, dynamic> beautifulClaimData  = replaceKeys(claimData, keyMapping);
+                        List<String> differences = compareMaps(beautifulInitClaimData, beautifulClaimData);
+
+                        addActivity(differences);
                         editMode = false;
                       });
                     }
@@ -166,6 +205,11 @@ class _EditClaimScreenState extends State<EditClaimScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: textFields.sublist(halfLength),
                   ),
+                  SizedBox(
+                    width: 450,
+                    height: 550,
+                    child: Timeline(key: Key("${activities.length}"), activities: activities),
+                  ),
                 ],
               ),
             ],
@@ -187,6 +231,7 @@ class _EditClaimScreenState extends State<EditClaimScreen> {
         // Update the claimData map with the new value
         setState(() {
           claimData[field] = newValue;
+          providedFields.add(field);
         });
       },
     );
