@@ -14,9 +14,7 @@ class LocationCharts extends StatelessWidget {
           ),
           child: Text("Placeholder for LocationCharts"),
         ),
-
       ),
     );
   }
-
 }

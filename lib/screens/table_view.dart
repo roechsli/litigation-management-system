@@ -4,8 +4,7 @@ class TableViewScreen extends StatefulWidget {
   const TableViewScreen({super.key});
 
   @override
-  State<StatefulWidget> createState() =>
-      _TableViewScreenState();
+  State<StatefulWidget> createState() => _TableViewScreenState();
 }
 
 class _TableViewScreenState extends State<TableViewScreen> {
