@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return child ?? Container();
       },
-      title: 'LMS',
+      title: 'CMS',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
