@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:litigation_management_system/repositories/claims_repository.dart';
 import 'package:survey_kit/survey_kit.dart' as survey;
 import 'package:survey_kit/survey_kit.dart';
 
@@ -17,6 +18,9 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
   @override
   void initState() {
     super.initState();
+    ClaimsRepository.claims.add(swissClaim);
+    print(ClaimsRepository.claims);
+
   }
 
   Future<void> handleSurveyResult(SurveyResult result) async {
@@ -37,6 +41,8 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
       //themeData: surveryTheme(context),
       surveyProgressbarConfiguration: SurveyProgressConfiguration(
         backgroundColor: Colors.white,
+        progressbarColor: Colors.white,
+        valueProgressbarColor: Colors.green
       ),
     );
     //_currentSurvey = survey;
@@ -54,7 +60,7 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
         InstructionStep(
           stepIdentifier: StepIdentifier(id: "1"),
           title: "Welcome to the\nLitigation Management System\n",
-          text: "Follow the instructions to add a litigation!",
+          text: "Follow the instructions to add a claim!",
           buttonText: "Let's go!",
         ),
         QuestionStep(
@@ -75,6 +81,7 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
             textChoices: [
               TextChoice(text: "Switzerland", value: "ch"),
               TextChoice(text: "Austria", value: "at"),
+              TextChoice(text: "France", value: "fr"),
               TextChoice(text: "Sweden", value: "se"),
               TextChoice(text: "Norway", value: "no"),
               TextChoice(text: "Italy", value: "it"),
@@ -87,7 +94,7 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
           text: "What is the nominal value of the claim?",
           answerFormat: IntegerAnswerFormat(
             defaultValue: 100,
-            hint: "Value in millions [@Gurinder add derived currency]",
+            hint: "Value in millions",
           ),
         ),
         QuestionStep(
