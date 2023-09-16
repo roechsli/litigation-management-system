@@ -29,7 +29,7 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
     Navigator.pop(context);
   }
 
-  SurveyKit litigationSurvery() {
+  SurveyKit litigationSurvey() {
     var survey = SurveyKit(
       onResult: handleSurveyResult,
       surveyController: _currentSurveyController,
@@ -161,7 +161,7 @@ class _NewLitigationScreenState extends State<NewLitigationScreen> {
         Container(
             color: Colors.white,
             child:
-                Align(alignment: Alignment.center, child: litigationSurvery()))
+                Align(alignment: Alignment.center, child: litigationSurvey()))
       ])),
     );
   }
