@@ -7,7 +7,7 @@ class TopNavigationHeader extends StatelessWidget {
       backgroundColor: Colors.white, // Background color
       elevation: 2, // Shadow elevation
       title: Text(
-        'Your Company',
+        'Implenia',
         style: TextStyle(
           fontSize: 24, // Adjust the font size as needed
           fontWeight: FontWeight.bold,
