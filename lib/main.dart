@@ -46,11 +46,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentPageIndex = 0;
 
-  List<Widget> screens = [const DashboardScreen(), const TableViewScreen(), EditClaimScreen()];
+  List<Widget> screens = [DashboardScreen(), TableViewScreen(key: tableViewKey), EditClaimScreen()];
+  // Reference to TableViewScreen's state
 
-  void doSomething() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const NewLitigationScreen()));
+
+ void doSomething() async {
+    await Navigator.push(context, MaterialPageRoute(builder: (context) => const NewLitigationScreen()));
+    
+    // After navigating back from NewLitigationScreen, call updateData to refresh the TableViewScreen.
+    if (currentPageIndex == 1) {
+      var screen = (screens[1] as TableViewScreen);
+      tableViewKey.currentState?.updateData();
+    }
+    
+    setState(() {
+      
+    });
   }
 
   @override
