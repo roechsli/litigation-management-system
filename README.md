@@ -4,6 +4,10 @@ A litigation management system
 
 ## Our solution
 
+Add new claim
+
+![Claim View Screen](https://github.com/roechsli/litigation-management-system/blob/master/assets/exports/claim_creation_fast_lq.gif)
+
 Claim View
 
 ![Claim View Screen](https://github.com/roechsli/litigation-management-system/blob/master/assets/exports/view_claim.gif)
