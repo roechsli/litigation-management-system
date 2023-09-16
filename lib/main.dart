@@ -9,7 +9,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
 
 void main() {
-  // Add this
+// Add this
   if (kIsWeb) {
     WebViewPlatform.instance = WebWebViewPlatform();
   }
@@ -19,7 +19,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,27 +52,21 @@ class _MyHomePageState extends State<MyHomePage> {
     const TableViewScreen(),
   ];
 
-  void doNothing() {}
-
   void doSomething() {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => const NewLitigationScreen()));
   }
 
-  void navigateToStandalonePage() {
-    //StandaloneWebViewScreen
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: NavigationBar(
+      bottomNavigationBar: NavigationBar(
           onDestinationSelected: (int index) {
             setState(() {
               currentPageIndex = index;
             });
           },
-          // indicatorColor: Colors.amber[800],
+// indicatorColor: Colors.amber[800],
           selectedIndex: currentPageIndex,
           destinations: const <Widget>[
             NavigationDestination(
@@ -87,8 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
+// Here we take the value from the MyHomePage object that was created by
+// the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
         body: screens[currentPageIndex],
@@ -99,7 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: const Icon(Icons.add),
               )
             : null // This trailing comma makes auto-formatting nicer for build methods.
-
         );
   }
 }
