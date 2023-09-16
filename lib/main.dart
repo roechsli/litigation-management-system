@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) {
+        return child ?? Container();
+      },
       title: 'LMS',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -40,11 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void doNothing() {}
 
   void doSomething() {
-    // Ask for New Survey
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const NewLitigationScreen()),
-    );
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const NewLitigationScreen()));
   }
 
   @override
