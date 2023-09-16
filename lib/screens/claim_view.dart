@@ -155,20 +155,19 @@ class _EditClaimScreenState extends State<EditClaimScreen> {
               SizedBox(height: 20),
               _SectionTitle(title: "General Info"),
               SizedBox(height: 10),
-
-             Row(
-               mainAxisAlignment: MainAxisAlignment.start,
-               children: [
-                 Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: textFields.sublist(0, halfLength),
-                 ),
-                 Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: textFields.sublist(halfLength),
-                 ),
-               ],
-             ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: textFields.sublist(0, halfLength),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: textFields.sublist(halfLength),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -263,27 +262,28 @@ class _InfoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-          SizedBox(
-            width: 20,
-          ),
-          Container(
-            width: 200,
-            child: editMode
-                ? editWidget
-                : Padding(
-                    padding: EdgeInsets.all(18),
-                    child: Text(value,
-                        style: TextStyle(
-                            color: isProvided ? Colors.black : Colors.grey)),
-                  ),
-          )
-        ],
+    return Container(
+      width: 400,
+      child: Padding(
+        padding: EdgeInsets.all(4),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+            Spacer(),
+            Container(
+              width: 200,
+              child: editMode
+                  ? editWidget
+                  : Padding(
+                      padding: EdgeInsets.all(18),
+                      child: Text(value,
+                          style: TextStyle(
+                              color: isProvided ? Colors.black : Colors.grey)),
+                    ),
+            )
+          ],
+        ),
       ),
     );
   }
