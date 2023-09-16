@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:litigation_management_system/screens/claim_view.dart';
 import 'package:litigation_management_system/screens/dashboard.dart';
 import 'package:litigation_management_system/screens/new_litigation_screen.dart';
 import 'package:litigation_management_system/screens/standalone_web_view_screen.dart';
@@ -47,10 +48,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentPageIndex = 0;
 
-  List<Widget> screens = [
-    const DashboardScreen(),
-    const TableViewScreen(),
-  ];
+  List<Widget> screens = [const DashboardScreen(), const TableViewScreen(), EditClaimScreen()];
 
   void doSomething() {
     Navigator.push(context,
@@ -78,6 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icon(Icons.business),
               label: 'Litigations',
             ),
+          NavigationDestination(
+            icon: Icon(Icons.account_balance),
+            label: 'View Claim',
+          ),
           ],
         ),
         appBar: AppBar(
