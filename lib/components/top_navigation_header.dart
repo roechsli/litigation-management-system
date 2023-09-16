@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../services/pdf_view.dart';
+import 'package:litigation_management_system/services/pdf_viewer.dart';
 
 class TopNavigationHeader extends StatelessWidget {
   @override
@@ -27,7 +26,7 @@ class TopNavigationHeader extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) =>
-                    Test(),
+                    PdfViewer(),
               ),
             );
           },
