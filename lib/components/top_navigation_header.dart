@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../services/pdf_view.dart';
+
 class TopNavigationHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,21 @@ class TopNavigationHeader extends StatelessWidget {
         ),
       ),
       actions: [
+        IconButton(
+          icon: Icon(
+            Icons.download_for_offline_outlined, // Messages icon
+            color: Colors.black,
+          ),
+          onPressed: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    Test(),
+              ),
+            );
+          },
+        ),
         IconButton(
           icon: Icon(
             Icons.mail_outline, // Messages icon
