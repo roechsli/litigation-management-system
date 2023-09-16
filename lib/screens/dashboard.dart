@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:litigation_management_system/components/category_overview.dart';
 import 'package:litigation_management_system/components/location_charts.dart';
 import 'package:litigation_management_system/components/top_navigation_header.dart';
+import 'package:litigation_management_system/widgets/web_view_widget.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -21,7 +23,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
           // charts
           Row(
-            children: const [
+            children: [
               // locations, active/passive, divisions
               SizedBox(
                 width: 800,
@@ -37,5 +39,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
     );
+  }
+
+  Widget dashboardWebView() {
+    return WebsiteViewer(
+        url:
+            'https://public.tableau.com/app/profile/wwael/viz/Implenia/Implenia?publish=yes');
   }
 }

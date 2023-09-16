@@ -1,9 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:litigation_management_system/screens/dashboard.dart';
 import 'package:litigation_management_system/screens/new_litigation_screen.dart';
+import 'package:litigation_management_system/screens/standalone_web_view_screen.dart';
 import 'package:litigation_management_system/screens/table_view.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_web/webview_flutter_web.dart';
 
 void main() {
+  // Add this
+  if (kIsWeb) {
+    WebViewPlatform.instance = WebWebViewPlatform();
+  }
   runApp(const MyApp());
 }
 
@@ -38,13 +46,21 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int currentPageIndex = 0;
 
-  List<Widget> screens = [const DashboardScreen(), const TableViewScreen()];
+  List<Widget> screens = [
+    const DashboardScreen(),
+    const TableViewScreen(),
+    StandaloneWebViewScreen()
+  ];
 
   void doNothing() {}
 
   void doSomething() {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => const NewLitigationScreen()));
+  }
+
+  void navigateToStandalonePage() {
+    //StandaloneWebViewScreen
   }
 
   @override
@@ -67,6 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
             NavigationDestination(
               icon: Icon(Icons.business),
               label: 'Litigations',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.web),
+              label: 'Test',
             ),
           ],
         ),
