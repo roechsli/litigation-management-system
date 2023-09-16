@@ -1,0 +1,127 @@
+{
+  "id": "123",
+  "type": "navigable",
+  "rules": [
+    {
+      "type": "conditional",
+      "triggerStepIdentifier": {
+        "id": "3"
+      },
+      "values": {
+        "Yes": "2",
+        "No": "10"
+      }
+    },
+    {
+      "type": "direct",
+      "triggerStepIdentifier": {
+        "id": "1"
+      },
+      "destinationStepIdentifier": {
+        "id": "3"
+      }
+    },
+    {
+      "type": "direct",
+      "triggerStepIdentifier": {
+        "id": "2"
+      },
+      "destinationStepIdentifier": {
+        "id": "10"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "stepIdentifier": {
+        "id": "1"
+      },
+      "type": "intro",
+      "title": "Welcome to the\nLitigation Management System\n",
+      "text": "Follow the instructions to add a litigation!",
+      "buttonText": "Let's go!"
+    },
+    {
+      "stepIdentifier": {
+        "id": "2"
+      },
+      "type": "question",
+      "title": "Litigation type",
+      "text": "Is the litigation active or passive?",
+      "answerFormat": {
+        "type": "bool",
+        "positiveAnswer": "Active",
+        "negativeAnswer": "Passive",
+        "result": "POSITIVE"
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "3"
+      },
+      "type": "question",
+      "title": "Location?",
+      "text": "In which jurisdiction is the claim originated?",
+      "answerFormat": {
+        "type": "multiple",
+        "textChoices": [
+          {
+            "text": "Switzerland",
+            "value": "ch"
+          },
+          {
+            "text": "Austria",
+            "value": "at"
+          },
+          {
+            "text": "Sweden",
+            "value": "se"
+          },
+          {
+            "text": "Norway",
+            "value": "no"
+          },
+          {
+            "text": "Italy",
+            "value": "it"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "4"
+      },
+      "type": "question",
+      "title": "Value in dispute?",
+      "text": "What is the nominal value of the claim?",
+      "answerFormat": {
+        "type": "integer",
+        "defaultValue": 100,
+        "hint": "Value in millions [@Gurinder add derived currency]"
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "5"
+      },
+      "type": "question",
+      "title": "Opposing party?",
+      "text": "Who is the claimant from/against?",
+      "answerFormat": {
+        "type": "text",
+        "maxLines": 5,
+        "validationRegEx": "^(?!\\s*\\$).+"
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "10"
+      },
+      "type": "completion",
+      "text": "Your claim is saved as a draft. Add more details later!",
+      "title": "Done!",
+      "buttonText": "Ädd claim"
+    }
+  ]
+}
