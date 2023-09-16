@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:litigation_management_system/components/category_overview.dart';
 import 'package:litigation_management_system/components/location_charts.dart';
-import 'package:litigation_management_system/components/top_navigation_bar.dart';
+import 'package:litigation_management_system/components/top_navigation_header.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -17,7 +17,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         children: [
           // topnavigationbar
-          const TopNavigationBar(),
+          TopNavigationHeader(),
 
           // charts
           Row(
